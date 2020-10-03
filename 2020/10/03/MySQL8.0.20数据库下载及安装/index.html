@@ -28,7 +28,7 @@
 <meta property="og:description" content="MySQL8.0.20数据库软件下载及安装1、MySQL数据软件的社区版、企业版、集群版区别 在这个下载界面会有几个版本的选择。   （1）. MySQL Community Server 社区版本，开源免费，但不提供官方技术支持。    （2）. MySQL Enterprise Edition 企业版本，需付费，可以试用30天。   （3）. MySQL Cluster 集群版，开源免费。可将">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2020-10-03T10:12:18.290Z">
-<meta property="article:modified_time" content="2020-10-03T12:57:11.804Z">
+<meta property="article:modified_time" content="2020-10-03T14:56:35.601Z">
 <meta property="article:author" content="John Doe">
 <meta name="twitter:card" content="summary">
 
@@ -174,7 +174,7 @@
               <span class="post-meta-item-text">Posted on</span>
               
 
-              <time title="Created: 2020-10-03 18:12:18 / Modified: 20:57:11" itemprop="dateCreated datePublished" datetime="2020-10-03T18:12:18+08:00">2020-10-03</time>
+              <time title="Created: 2020-10-03 18:12:18 / Modified: 22:56:35" itemprop="dateCreated datePublished" datetime="2020-10-03T18:12:18+08:00">2020-10-03</time>
             </span>
 
           
@@ -242,7 +242,7 @@
 </li>
 <li>输入如下命令建立默认数据库<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysqld <span class="comment">--initialize-insecure --user=mysql </span></span><br></pre></td></tr></table></figure>
 <blockquote>
-<p>① 此时 MySQL 建立了默认的数据库，用户名为 root，密码为空。<br>② 如果提示 mysqld 不存在，检查环境变量设置。<br>③ 如果没有生成 data，请查看文章最后的【常见问题】章节。</p>
+<p>① 此时 MySQL 建立了默认的数据库，用户名为 root，密码为空。<br>② 如果提示 mysqld 不存在，检查环境变量设置。<br>③ 如果没有生成 data</p>
 </blockquote>
 </li>
 </ul>
@@ -254,6 +254,51 @@
 <p>① 第一次安装的话会显示 Service successfully installed.<br>② 已经安装过了，会显示 The service already exists! …</p>
 </blockquote>
 </li>
+<li>如未正常安装请先移出服务，输入如下命令<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysqld -remove</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>① 移除成功的话会显示 Service successfully removed.</p>
+</blockquote>
+</li>
+</ul>
+</li>
+<li><p>3.6、启动服务</p>
+<ul>
+<li>输入如下命令启动服务 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">net start mysql </span><br></pre></td></tr></table></figure>
+<ul>
+<li>如果遇到 MySQL 无法启动，3534，请检查如下：<ul>
+<li>（1）请不要手动创建data目录</li>
+<li>（2）my.ini文件中配置的目录中是否有t开头的文件夹如果有则在配置路径是使用 <code>//</code> 提黄</li>
+<li>（3）my.ini文件的编码方式是不是 <code>ANSI</code>格式如果不是请改成这个格式</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>3.7、登录MySQL</p>
+<ul>
+<li><p>输入如下命令回车后输入密码</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysql -u root -p</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>① -u 指的是登录的用户名，-p 是密码<br><br>② 用户名默认为 root，此时密码为空</p>
+</blockquote>
+<p>此时默认密码为空直接回车即可登录</p>
+</li>
+</ul>
+</li>
+<li><p>3.8、修改密码（第一次登录后应第一时间修改密码）</p>
+<ul>
+<li>输入下列语句，将 new_password 替换为新密码，修改密码完成<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">ALTER</span> <span class="keyword">USER</span> <span class="string">&#x27;root&#x27;</span>@<span class="string">&#x27;localhost&#x27;</span> <span class="keyword">IDENTIFIED</span> <span class="keyword">BY</span> <span class="string">&#x27;new_password&#x27;</span>;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>① 为了避免之后出现登录问题，登陆后第一件事情应该是修改密码。<br><br>② new_password 是你的新密码部分，自行修改。<br><br>③ 注意密码在单引号内部 ‘password’<br><br>④ 注意结尾的分号 “;”<br></p>
+</blockquote>
+</li>
+</ul>
+</li>
+<li><p>3.9、退出数据库和停止服务</p>
+<ul>
+<li>退出数据库<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">quit;</span><br></pre></td></tr></table></figure></li>
+<li>停止数据库服务<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">net stop mysql</span><br></pre></td></tr></table></figure></li>
 </ul>
 </li>
 </ul>
