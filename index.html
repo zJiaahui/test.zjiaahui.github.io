@@ -145,6 +145,116 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2020/10/08/03%20select%20%E5%9F%BA%E7%A1%80%E6%9F%A5%E8%AF%A2/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="John Doe">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/10/08/03%20select%20%E5%9F%BA%E7%A1%80%E6%9F%A5%E8%AF%A2/" class="post-title-link" itemprop="url">Untitled</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2020-10-08 22:25:59" itemprop="dateCreated datePublished" datetime="2020-10-08T22:25:59+08:00">2020-10-08</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2020-10-06 15:59:57" itemprop="dateModified" datetime="2020-10-06T15:59:57+08:00">2020-10-06</time>
+              </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="SQL查询-基础查询"><a href="#SQL查询-基础查询" class="headerlink" title="SQL查询-基础查询"></a>SQL查询-基础查询</h1><h2 id="1、基础查询语法及示例"><a href="#1、基础查询语法及示例" class="headerlink" title="1、基础查询语法及示例"></a>1、基础查询语法及示例</h2><hr>
+<ul>
+<li><h3 id="【语法】"><a href="#【语法】" class="headerlink" title="【语法】"></a><strong>【语法】</strong></h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> 查询列表 <span class="keyword">FROM</span> 表名;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p> <strong>注释》</strong><br>（1）查询列表可以是表字段、常量、表达式、函数（有时候每个字段需要添加着重符号` ` 用于区分为非关键字）<br><br>（2）查询的结果会形成一个新的虚拟表，该虚拟表的字段就是查询语句的查询列表名称 </p>
+</blockquote>
+</li>
+<li><h3 id="【示例】"><a href="#【示例】" class="headerlink" title="【示例】"></a><strong>【示例】</strong></h3></li>
+<li><h4 id="1-2、字段查询示例"><a href="#1-2、字段查询示例" class="headerlink" title="1.2、字段查询示例"></a><strong>1.2、字段查询示例</strong></h4><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 1-1、查询员工表中的姓名字段</span></span><br><span class="line"><span class="keyword">SELECT</span> <span class="string">`name`</span> <span class="keyword">FROM</span> employee;</span><br><span class="line"></span><br><span class="line"><span class="comment"># 1-2、查看员工表的中所有人的姓名和年龄</span></span><br><span class="line"><span class="keyword">SELECT</span> <span class="string">`name`</span>,<span class="string">`age`</span> <span class="keyword">FROM</span> employee;</span><br><span class="line"></span><br><span class="line"><span class="comment"># 1-3、查询员工表中所有人的所有信息</span></span><br><span class="line"><span class="keyword">SELECT</span> * <span class="keyword">FROM</span> employee;</span><br></pre></td></tr></table></figure></li>
+<li><h4 id="1-3、常量查询示例"><a href="#1-3、常量查询示例" class="headerlink" title="1.3、常量查询示例"></a><strong>1.3、常量查询示例</strong></h4><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span>  <span class="number">100</span> <span class="keyword">FROM</span> employee;</span><br><span class="line"></span><br><span class="line"><span class="keyword">SELECT</span> <span class="string">&#x27;john&#x27;</span> <span class="keyword">FROM</span> employee;</span><br></pre></td></tr></table></figure></li>
+<li><h4 id="1-4、表达式查询示例"><a href="#1-4、表达式查询示例" class="headerlink" title="1.4、表达式查询示例"></a><strong>1.4、表达式查询示例</strong></h4><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span>  <span class="number">10</span>+<span class="number">20</span> <span class="keyword">FROM</span> employee;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p><strong>注释 》</strong><br>sql中的加号+只是运算符,有一个不为数字则将其转换为数值再做加法，如果转换失败则将其用0代替再做加法运算,有一个为null结果为null</p>
+</blockquote>
+</li>
+</ul>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> <span class="number">100</span>%<span class="number">98</span> <span class="keyword">FROM</span> employee;</span><br></pre></td></tr></table></figure>
+<ul>
+<li><h4 id="1-5、函数查询示例"><a href="#1-5、函数查询示例" class="headerlink" title="1.5、函数查询示例"></a><strong>1.5、函数查询示例</strong></h4><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> <span class="keyword">version</span>() <span class="keyword">FROM</span> employee;</span><br></pre></td></tr></table></figure>
+<h2 id="2、起别名"><a href="#2、起别名" class="headerlink" title="2、起别名"></a>2、起别名</h2></li>
+</ul>
+<hr>
+<ul>
+<li><h3 id="【语法】-1"><a href="#【语法】-1" class="headerlink" title="【语法】"></a><strong>【语法】</strong></h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> 字段<span class="number">1</span> <span class="keyword">AS</span> 字段<span class="number">1</span>别名, 字段<span class="number">2</span> <span class="keyword">AS</span> 字段<span class="number">2</span>别名 <span class="keyword">FROM</span> 表名；</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p> <strong>注释》</strong><br>（1）查询的结果会形成一个新的虚拟表，该虚拟表的字段就是查询语句的查询列表名称的别名<br><br> (2) 不是每一项都需要同时取别名</p>
+</blockquote>
+</li>
+</ul>
+<h2 id="3、结果去重"><a href="#3、结果去重" class="headerlink" title="3、结果去重"></a>3、结果去重</h2><hr>
+<ul>
+<li><h3 id="【语法】-2"><a href="#【语法】-2" class="headerlink" title="【语法】"></a><strong>【语法】</strong></h3></li>
+</ul>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> <span class="keyword">DISTINCT</span> 字段 <span class="keyword">FROM</span> 表名;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p> <strong>注释 》</strong><br>（1）查询的结果会形成一个新的虚拟表，去掉结果中重复的内容<br>(2) 只能有一个查询字段的时候使用</p>
+</blockquote>
+<h2 id="4、查询两个字段合成一个字段显示结果"><a href="#4、查询两个字段合成一个字段显示结果" class="headerlink" title="4、查询两个字段合成一个字段显示结果"></a>4、查询两个字段合成一个字段显示结果</h2><hr>
+<ul>
+<li><h3 id="【语法】-3"><a href="#【语法】-3" class="headerlink" title="【语法】"></a><strong>【语法】</strong></h3></li>
+</ul>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> <span class="keyword">CONCAT</span>(<span class="string">&#x27;字段1&#x27;</span>,<span class="string">&#x27;字段2&#x27;</span>) <span class="keyword">AS</span> 别名 <span class="keyword">FROM</span> 表名;</span><br></pre></td></tr></table></figure>
+<ul>
+<li><h3 id="【示例】-1"><a href="#【示例】-1" class="headerlink" title="【示例】"></a><strong>【示例】</strong></h3></li>
+</ul>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">4-0、查询员工表的中所有员工的姓和名并合并成完整的姓名输出</span><br><span class="line"><span class="keyword">SELECT</span> <span class="keyword">CONCAT</span>(<span class="string">&#x27;fristname&#x27;</span>,<span class="string">&#x27;lastname&#x27;</span>) <span class="keyword">AS</span> <span class="keyword">name</span> <span class="keyword">FROM</span> employee;</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
     <link itemprop="mainEntityOfPage" href="http://example.com/2020/10/07/02%20SQL%E8%AF%AD%E6%B3%95%E8%A7%84%E8%8C%83%E5%8F%8A%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -628,7 +738,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">4</span>
+          <span class="site-state-item-count">5</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
