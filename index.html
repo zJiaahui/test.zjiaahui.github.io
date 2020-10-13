@@ -173,7 +173,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2020/10/13/06%20select%20%E5%B8%B8%E8%A7%81%E5%87%BD%E6%95%B0/" class="post-title-link" itemprop="url">未命名</a>
+            <a href="/2020/10/13/06%20select%20%E5%B8%B8%E8%A7%81%E5%87%BD%E6%95%B0/" class="post-title-link" itemprop="url">【MySQL系列】-[6] SQL常用函数</a>
         </h2>
 
         <div class="post-meta">
@@ -184,7 +184,7 @@
               <span class="post-meta-item-text">发表于</span>
               
 
-              <time title="创建时间：2020-10-13 18:18:28 / 修改时间：18:19:44" itemprop="dateCreated datePublished" datetime="2020-10-13T18:18:28+08:00">2020-10-13</time>
+              <time title="创建时间：2020-10-13 18:18:28 / 修改时间：18:27:31" itemprop="dateCreated datePublished" datetime="2020-10-13T18:18:28+08:00">2020-10-13</time>
             </span>
 
           <br>
@@ -212,68 +212,15 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h1 id="SQL常用函数"><a href="#SQL常用函数" class="headerlink" title="SQL常用函数"></a>SQL常用函数</h1><hr>
-<p>title: 【MySQL系列】-[6] SQL常用函数<br>tags: MySQL</p>
-<hr>
-<h2 id="1、常用函数分类"><a href="#1、常用函数分类" class="headerlink" title="1、常用函数分类"></a>1、常用函数分类</h2><ul>
-<li>1.1、单行函数<ul>
-<li>字符函数</li>
-<li>数学函数</li>
-<li>日期函数</li>
-<li>流程控制函数</li>
-</ul>
-</li>
-<li>1.2、分组函数</li>
-</ul>
-<h2 id="2、单行函数-字符函数"><a href="#2、单行函数-字符函数" class="headerlink" title="2、单行函数-字符函数"></a>2、单行函数-字符函数</h2><ul>
-<li>2.1、获取参数值的字节个数<code>length(&#39;shdsjka中问12&#39;)</code></li>
-<li>2.2、拼接字符串函数 <code>concat(last_name,&#39;-&#39;,first_name)</code></li>
-<li>2.3、大小写转换函数小写转大写 <code>UPPER(&#39;wangwu&#39;)</code> 大转小<code>LOWER(&#39;WANGWU&#39;)</code></li>
-<li>2.4、截取字符串 <code>substr(字符,开始位置,截取个数)</code>、<code>substring()</code></li>
-<li>2.5、判断字符在某一段字符里出现的位置找不到返回0<code>instr(&#39;asdfghjk&#39;,&#39;j&#39;)</code></li>
-<li>2.6、去左右空格 <code>TRIM(&#39;  sds   &#39;)</code></li>
-<li>2.7、lpad 用指定字符填充左边至指定的字符长度 <code>lpad(&#39;积分多少快乐&#39;,10,&#39;*&#39;)</code></li>
-<li>2.8、rpad 用指定字符填充右边至指定的字符长度 <code>rpad(&#39;积分多少快乐&#39;,10,&#39;*&#39;)</code></li>
-<li>2.9、替换<code>replace(&#39;字符段落&#39;,&#39;想要替换掉的字符&#39;,&#39;想要替换成的字符&#39;)</code><h2 id="3、单行函数-数学函数"><a href="#3、单行函数-数学函数" class="headerlink" title="3、单行函数-数学函数"></a>3、单行函数-数学函数</h2></li>
-<li>3.1、四舍五入 <code>round(1.55)</code> <code>round(1.557,2)</code></li>
-<li>3.2、向上取整<code>ceil(1.02)</code></li>
-<li>3.3、向下取整<code>floor(9.99)</code></li>
-<li>3.4、截断<code>truncate(1.6999,1)</code></li>
-<li>3.5、取余<code>mod(10,3)</code></li>
-</ul>
-<h2 id="4、单行函数-日期函数"><a href="#4、单行函数-日期函数" class="headerlink" title="4、单行函数-日期函数"></a>4、单行函数-日期函数</h2><ul>
-<li>4.1、当前时间加日期 <code>now()</code>-&gt;2020-10-06 11:22:33</li>
-<li>4.2、当前日期不包含时间<code>curdate()</code>-&gt;2020-10-06</li>
-<li>4.3、当前时间不包含日期<code>curtime()</code>-&gt;11:22:33</li>
-<li>4.4、获取指定的部分年、月、日<br><code>year(now())</code>-&gt;2020,<code>year(&#39;1998-10-1&#39;)</code>-&gt;1998</li>
-</ul>
-<h2 id="5、流程控制函数"><a href="#5、流程控制函数" class="headerlink" title="5、流程控制函数"></a>5、流程控制函数</h2><ul>
-<li><p>5.1、if函数：实现三元运算的效果</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> <span class="keyword">IF</span>(表达式<span class="number">1</span>,表达式<span class="number">2</span>,表达式<span class="number">3</span>) </span><br><span class="line"><span class="comment"># 表达式1结果为true返回表达式2的值为false返回表达式3的值</span></span><br></pre></td></tr></table></figure>
- <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 查询员工表中年龄大于50岁的姓名及备注有福利小于50岁的备注无福利</span></span><br><span class="line"><span class="keyword">SELECT</span> <span class="string">`name`</span>,age, <span class="keyword">IF</span>(age&gt;<span class="number">50</span>,<span class="string">&#x27;有福利&#x27;</span>,<span class="string">&#x27;无福利&#x27;</span>) <span class="keyword">FROM</span> employees;</span><br></pre></td></tr></table></figure></li>
-<li><p>5.2、case函数</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">case 要判断的字段或表达式</span><br><span class="line">when 常量 then 要显示的值或语句;</span><br><span class="line">when 常量 then 要显示的值或语句;</span><br><span class="line">...</span><br><span class="line">else 要显示的值或语句;</span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></table></figure>
-
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"> <span class="comment"># 查询员工工资 </span></span><br><span class="line"> <span class="comment"># 部门号=30的显示工资的1.1倍</span></span><br><span class="line"> <span class="comment"># 部门号=40的显示工资的1.2倍</span></span><br><span class="line"> <span class="comment"># 其他显示原工资</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">SELECT</span> salary,<span class="keyword">id</span>,</span><br><span class="line"><span class="keyword">case</span> <span class="keyword">id</span></span><br><span class="line"><span class="keyword">when</span> <span class="number">30</span> <span class="keyword">then</span> salary*<span class="number">1.1</span>;</span><br><span class="line">when 40 then salary*1.2;</span><br><span class="line">else salary;</span><br><span class="line"><span class="keyword">end</span> <span class="keyword">as</span> 倍数工资 <span class="keyword">from</span> employees;</span><br></pre></td></tr></table></figure>
-
-  <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">case </span><br><span class="line">when 条件 then 要显示的值或语句;</span><br><span class="line">when 条件 then 要显示的值或语句;</span><br><span class="line">...</span><br><span class="line">else 要显示的值或语句;</span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></table></figure>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"> <span class="comment"># 查询员工工资 </span></span><br><span class="line"> <span class="comment"># 部门号&gt;30的显示工资的1.1倍</span></span><br><span class="line"> <span class="comment"># 部门号&gt;40的显示工资的1.2倍</span></span><br><span class="line"> <span class="comment"># 其他显示原工资</span></span><br><span class="line"><span class="keyword">SELECT</span> salary,<span class="keyword">id</span>,</span><br><span class="line"><span class="keyword">case</span> </span><br><span class="line"><span class="keyword">when</span> <span class="keyword">id</span>&gt;<span class="number">30</span> <span class="keyword">then</span> salary*<span class="number">1.1</span>;</span><br><span class="line">when id&gt;40 then salary*1.2;</span><br><span class="line">else salary;</span><br><span class="line"><span class="keyword">end</span> <span class="keyword">as</span> 倍数工资 <span class="keyword">from</span> employees;</span><br></pre></td></tr></table></figure>
-
-</li>
-</ul>
-<h2 id="分组函数"><a href="#分组函数" class="headerlink" title="分组函数"></a>分组函数</h2><ul>
-<li>sum 求和 处理数值类型</li>
-<li>avg 平均值 处理数值类型</li>
-<li>max 最大值 处理任何类型</li>
-<li>min 最小值 处理任何类型</li>
-<li>count 计算个数 处理任何类型</li>
-</ul>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 求员工表所有员工工资和</span></span><br><span class="line"><span class="keyword">SELECT</span> <span class="keyword">SUM</span>(salary) <span class="keyword">FROM</span> employees;</span><br><span class="line"><span class="keyword">SELECT</span> <span class="keyword">SUM</span>(<span class="keyword">DISTINCT</span> salary) <span class="keyword">FROM</span> employees; <span class="comment">#去重</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 求员工表所有员工工资的平均值</span></span><br><span class="line"><span class="keyword">SELECT</span> <span class="keyword">AVG</span>(salary) <span class="keyword">FROM</span> employees;</span><br><span class="line"><span class="keyword">SELECT</span> <span class="keyword">AVG</span>(<span class="keyword">DISTINCT</span> salary) <span class="keyword">FROM</span> employees; <span class="comment">#去重</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 求员工表所有员工工资的最高工资</span></span><br><span class="line"><span class="keyword">SELECT</span> <span class="keyword">MAX</span>(salary) <span class="keyword">FROM</span> employees;</span><br><span class="line"><span class="keyword">SELECT</span> <span class="keyword">MAX</span>(<span class="keyword">DISTINCT</span> salary) <span class="keyword">FROM</span> employees; <span class="comment">#去重</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 求员工表所有员工工资的最低工资</span></span><br><span class="line"><span class="keyword">SELECT</span> <span class="keyword">MIN</span>(salary) <span class="keyword">FROM</span> employees;</span><br><span class="line"><span class="keyword">SELECT</span> <span class="keyword">MIN</span>(<span class="keyword">DISTINCT</span> salary) <span class="keyword">FROM</span> employees; <span class="comment">#去重</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 求员工表有多少条salary字段数据</span></span><br><span class="line"><span class="keyword">SELECT</span> <span class="keyword">count</span>(salary) <span class="keyword">FROM</span> employees;</span><br><span class="line"><span class="keyword">SELECT</span> <span class="keyword">count</span>(<span class="keyword">DISTINCT</span> salary) <span class="keyword">FROM</span> employees; <span class="comment">#去重</span></span><br></pre></td></tr></table></figure>
-<h3 id="count统计表中数据行数"><a href="#count统计表中数据行数" class="headerlink" title="count统计表中数据行数"></a>count统计表中数据行数</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#统计表中数据行数</span></span><br><span class="line"><span class="keyword">SELECT</span> <span class="keyword">count</span>(*) <span class="keyword">FROM</span> employees;</span><br><span class="line"><span class="keyword">SELECT</span> <span class="keyword">count</span>(<span class="number">1</span>) <span class="keyword">FROM</span> employees;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-
-
-
+          <p>MySQL中SQL语句常用函数：字符函数、数学函数、日期函数、流程控制函数、分组函数的基本了解、及简单示例，为SQL查询语句中的分组查询做铺垫…</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2020/10/13/06%20select%20%E5%B8%B8%E8%A7%81%E5%87%BD%E6%95%B0/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
