@@ -20,20 +20,20 @@
     var CONFIG = {"hostname":"example.com","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
-  <meta name="description" content="MySQL中SQL的SELECT 分组函数,分组列表（要求出现在group by的后面）From 表 WHERE 条件表达式 group by 分组列表 ORDER BY 子句;分组查询的查询列表由分组函数、分组列表构成；group by 后必须是分组列表…">
+  <meta name="description" content="前端开发">
 <meta property="og:type" content="article">
-<meta property="og:title" content="【MySQL系列】-[7] SQL分组查询">
-<meta property="og:url" content="http://example.com/2020/10/14/07%20select%20%E5%88%86%E7%BB%84%E6%9F%A5%E8%AF%A2/index.html">
+<meta property="og:title" content="【MySQL系列】-[7] select多表连接查询">
+<meta property="og:url" content="http://example.com/2020/10/17/07%20select%E5%A4%9A%E8%A1%A8%E8%BF%9E%E6%8E%A5%E6%9F%A5%E8%AF%A2/index.html">
 <meta property="og:site_name" content="zjiaahui">
-<meta property="og:description" content="MySQL中SQL的SELECT 分组函数,分组列表（要求出现在group by的后面）From 表 WHERE 条件表达式 group by 分组列表 ORDER BY 子句;分组查询的查询列表由分组函数、分组列表构成；group by 后必须是分组列表…">
+<meta property="og:description" content="前端开发">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2020-10-14T09:38:33.719Z">
-<meta property="article:modified_time" content="2020-10-17T02:31:03.766Z">
+<meta property="article:published_time" content="2020-10-17T07:51:42.426Z">
+<meta property="article:modified_time" content="2020-10-17T07:53:14.615Z">
 <meta property="article:author" content="zjiaahui">
 <meta property="article:tag" content="MySQL">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="http://example.com/2020/10/14/07%20select%20%E5%88%86%E7%BB%84%E6%9F%A5%E8%AF%A2/">
+<link rel="canonical" href="http://example.com/2020/10/17/07%20select%E5%A4%9A%E8%A1%A8%E8%BF%9E%E6%8E%A5%E6%9F%A5%E8%AF%A2/">
 
 
 <script id="page-configurations">
@@ -46,7 +46,7 @@
   };
 </script>
 
-  <title>【MySQL系列】-[7] SQL分组查询 | zjiaahui</title>
+  <title>【MySQL系列】-[7] select多表连接查询 | zjiaahui</title>
   
 
 
@@ -162,7 +162,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2020/10/14/07%20select%20%E5%88%86%E7%BB%84%E6%9F%A5%E8%AF%A2/">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2020/10/17/07%20select%E5%A4%9A%E8%A1%A8%E8%BF%9E%E6%8E%A5%E6%9F%A5%E8%AF%A2/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.jpg">
@@ -175,7 +175,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          【MySQL系列】-[7] SQL分组查询
+          【MySQL系列】-[7] select多表连接查询
         </h1>
 
         <div class="post-meta">
@@ -184,16 +184,10 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
+              
 
-              <time title="创建时间：2020-10-14 17:38:33" itemprop="dateCreated datePublished" datetime="2020-10-14T17:38:33+08:00">2020-10-14</time>
+              <time title="创建时间：2020-10-17 15:51:42 / 修改时间：15:53:14" itemprop="dateCreated datePublished" datetime="2020-10-17T15:51:42+08:00">2020-10-17</time>
             </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-10-17 10:31:03" itemprop="dateModified" datetime="2020-10-17T10:31:03+08:00">2020-10-17</time>
-              </span>
 
           <br>
             <span class="post-meta-item" title="本文字数">
@@ -201,7 +195,7 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>262</span>
+              <span>0</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -220,13 +214,7 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p>MySQL中SQL的<code>SELECT 分组函数,分组列表（要求出现在group by的后面）From 表 WHERE 条件表达式 group by 分组列表 ORDER BY 子句;</code>分组查询的查询列表由分组函数、分组列表构成；group by 后必须是分组列表…</p>
-<a id="more"></a>
-
-<p><strong>【语法】</strong></p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> 分组函数,分组列表（要求出现在<span class="keyword">group</span> <span class="keyword">by</span>的后面）</span><br><span class="line"><span class="keyword">From</span> 表</span><br><span class="line"><span class="keyword">WHERE</span> 条件表达式</span><br><span class="line"><span class="keyword">group</span> <span class="keyword">by</span> 分组列表</span><br><span class="line"><span class="keyword">ORDER</span> <span class="keyword">BY</span> 子句;</span><br></pre></td></tr></table></figure>
-<p><strong>【案例】</strong></p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 查询每个工种的最高工资</span></span><br><span class="line"><span class="keyword">SELECT</span> <span class="keyword">MAX</span>(salary) ,job_id <span class="keyword">FROM</span> employees <span class="keyword">group</span> <span class="keyword">by</span> job_id;</span><br></pre></td></tr></table></figure>
+        
     </div>
 
     
@@ -241,7 +229,7 @@
   </li>
   <li class="post-copyright-link">
     <strong>本文链接：</strong>
-    <a href="http://example.com/2020/10/14/07%20select%20%E5%88%86%E7%BB%84%E6%9F%A5%E8%AF%A2/" title="【MySQL系列】-[7] SQL分组查询">http://example.com/2020/10/14/07 select 分组查询/</a>
+    <a href="http://example.com/2020/10/17/07%20select%E5%A4%9A%E8%A1%A8%E8%BF%9E%E6%8E%A5%E6%9F%A5%E8%AF%A2/" title="【MySQL系列】-[7] select多表连接查询">http://example.com/2020/10/17/07 select多表连接查询/</a>
   </li>
   <li class="post-copyright-license">
     <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
@@ -261,8 +249,8 @@
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/2020/10/13/06%20select%20%E5%B8%B8%E8%A7%81%E5%87%BD%E6%95%B0/" rel="prev" title="【MySQL系列】-[6] SQL常用函数">
-      <i class="fa fa-chevron-left"></i> 【MySQL系列】-[6] SQL常用函数
+    <a href="/2020/10/13/06%20select%20%E5%B8%B8%E8%A7%81%E5%87%BD%E6%95%B0%E5%8F%8A%E5%87%BD%E6%95%B0%E5%88%86%E7%BB%84%E6%9F%A5%E8%AF%A2/" rel="prev" title="【MySQL系列】-[6] SQL常用函数及函数分组查询">
+      <i class="fa fa-chevron-left"></i> 【MySQL系列】-[6] SQL常用函数及函数分组查询
     </a></div>
       <div class="post-nav-item"></div>
     </div>
@@ -393,13 +381,13 @@
       <i class="fa fa-chart-area"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">12k</span>
+    <span title="站点总字数">13k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">11 分钟</span>
+    <span title="站点阅读时长">12 分钟</span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://muse.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a> 强力驱动
   </div>
