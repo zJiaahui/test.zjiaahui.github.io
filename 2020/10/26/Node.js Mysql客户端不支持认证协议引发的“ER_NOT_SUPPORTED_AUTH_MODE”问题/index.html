@@ -20,15 +20,15 @@
     var CONFIG = {"hostname":"example.com","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
-  <meta name="description" content="当我们再Nodejs中连接Mysql8时出现如下错误信息1Client does not support authentication protocol requested by server; consider upgrading MySQL client 原因导致这个错误的原因是，目前，最新的mysql模块并未完全支持MySQL 8的“caching_sha2_password”加密方式，而“">
+  <meta name="description" content="1.当我们再Nodejs中连接Mysql8时出现如下错误信息1Client does not support authentication protocol requested by server; consider upgrading MySQL client 2.原因导致这个错误的原因是，目前，最新的mysql模块并未完全支持MySQL 8的“caching_sha2_password”加密方">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Node.js Mysql8客户端不支持认证协议引发的“ER_NOT_SUPPORTED_AUTH_MODE”问题">
 <meta property="og:url" content="http://example.com/2020/10/26/Node.js%20Mysql%E5%AE%A2%E6%88%B7%E7%AB%AF%E4%B8%8D%E6%94%AF%E6%8C%81%E8%AE%A4%E8%AF%81%E5%8D%8F%E8%AE%AE%E5%BC%95%E5%8F%91%E7%9A%84%E2%80%9CER_NOT_SUPPORTED_AUTH_MODE%E2%80%9D%E9%97%AE%E9%A2%98/index.html">
 <meta property="og:site_name" content="zjiaahui">
-<meta property="og:description" content="当我们再Nodejs中连接Mysql8时出现如下错误信息1Client does not support authentication protocol requested by server; consider upgrading MySQL client 原因导致这个错误的原因是，目前，最新的mysql模块并未完全支持MySQL 8的“caching_sha2_password”加密方式，而“">
+<meta property="og:description" content="1.当我们再Nodejs中连接Mysql8时出现如下错误信息1Client does not support authentication protocol requested by server; consider upgrading MySQL client 2.原因导致这个错误的原因是，目前，最新的mysql模块并未完全支持MySQL 8的“caching_sha2_password”加密方">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2020-10-26T14:17:05.130Z">
-<meta property="article:modified_time" content="2020-10-26T14:25:17.763Z">
+<meta property="article:modified_time" content="2020-10-31T07:52:41.238Z">
 <meta property="article:author" content="zjiaahui">
 <meta property="article:tag" content="MySQL">
 <meta property="article:tag" content="Nodejs">
@@ -185,10 +185,16 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
-              
 
-              <time title="创建时间：2020-10-26 22:17:05 / 修改时间：22:25:17" itemprop="dateCreated datePublished" datetime="2020-10-26T22:17:05+08:00">2020-10-26</time>
+              <time title="创建时间：2020-10-26 22:17:05" itemprop="dateCreated datePublished" datetime="2020-10-26T22:17:05+08:00">2020-10-26</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-10-31 15:52:41" itemprop="dateModified" datetime="2020-10-31T15:52:41+08:00">2020-10-31</time>
+              </span>
 
           <br>
             <span class="post-meta-item" title="本文字数">
@@ -196,7 +202,7 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>478</span>
+              <span>484</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -215,9 +221,9 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h2 id="当我们再Nodejs中连接Mysql8时出现如下错误信息"><a href="#当我们再Nodejs中连接Mysql8时出现如下错误信息" class="headerlink" title="当我们再Nodejs中连接Mysql8时出现如下错误信息"></a>当我们再Nodejs中连接Mysql8时出现如下错误信息</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Client does not support authentication protocol requested by server; consider upgrading MySQL client</span><br></pre></td></tr></table></figure>
-<h2 id="原因"><a href="#原因" class="headerlink" title="原因"></a>原因</h2><p>导致这个错误的原因是，目前，最新的mysql模块并未完全支持MySQL 8的“caching_sha2_password”加密方式，而“caching_sha2_password”在MySQL 8中是默认的加密方式。因此，下面的方式命令是默认已经使用了“caching_sha2_password”加密方式，该账号、密码无法在mysql模块中使用。</p>
-<h2 id="解决办法"><a href="#解决办法" class="headerlink" title="解决办法"></a>解决办法</h2><p>解决方法是从新修改用户root的密码，并指定mysql模块能够支持的加密方式：“mysql_native_password”加密方式。这种方式是在mysql模块能够支持。</p>
+        <h2 id="1-当我们再Nodejs中连接Mysql8时出现如下错误信息"><a href="#1-当我们再Nodejs中连接Mysql8时出现如下错误信息" class="headerlink" title="1.当我们再Nodejs中连接Mysql8时出现如下错误信息"></a>1.当我们再Nodejs中连接Mysql8时出现如下错误信息</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Client does not support authentication protocol requested by server; consider upgrading MySQL client</span><br></pre></td></tr></table></figure>
+<h2 id="2-原因"><a href="#2-原因" class="headerlink" title="2.原因"></a>2.原因</h2><p>导致这个错误的原因是，目前，最新的mysql模块并未完全支持MySQL 8的“caching_sha2_password”加密方式，而“caching_sha2_password”在MySQL 8中是默认的加密方式。因此，下面的方式命令是默认已经使用了“caching_sha2_password”加密方式，该账号、密码无法在mysql模块中使用。</p>
+<h2 id="3-解决办法"><a href="#3-解决办法" class="headerlink" title="3.解决办法"></a>3.解决办法</h2><p>解决方法是从新修改用户root的密码，并指定mysql模块能够支持的加密方式：“mysql_native_password”加密方式。这种方式是在mysql模块能够支持。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ALTER USER &#39;root&#39;@&#39;localhost&#39; IDENTIFIED WITH mysql_native_password BY &#39;你的新密码&#39;;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
     </div>
 
@@ -316,7 +322,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%BD%93%E6%88%91%E4%BB%AC%E5%86%8DNodejs%E4%B8%AD%E8%BF%9E%E6%8E%A5Mysql8%E6%97%B6%E5%87%BA%E7%8E%B0%E5%A6%82%E4%B8%8B%E9%94%99%E8%AF%AF%E4%BF%A1%E6%81%AF"><span class="nav-number">1.</span> <span class="nav-text">当我们再Nodejs中连接Mysql8时出现如下错误信息</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8E%9F%E5%9B%A0"><span class="nav-number">2.</span> <span class="nav-text">原因</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A7%A3%E5%86%B3%E5%8A%9E%E6%B3%95"><span class="nav-number">3.</span> <span class="nav-text">解决办法</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-%E5%BD%93%E6%88%91%E4%BB%AC%E5%86%8DNodejs%E4%B8%AD%E8%BF%9E%E6%8E%A5Mysql8%E6%97%B6%E5%87%BA%E7%8E%B0%E5%A6%82%E4%B8%8B%E9%94%99%E8%AF%AF%E4%BF%A1%E6%81%AF"><span class="nav-number">1.</span> <span class="nav-text">1.当我们再Nodejs中连接Mysql8时出现如下错误信息</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-%E5%8E%9F%E5%9B%A0"><span class="nav-number">2.</span> <span class="nav-text">2.原因</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-%E8%A7%A3%E5%86%B3%E5%8A%9E%E6%B3%95"><span class="nav-number">3.</span> <span class="nav-text">3.解决办法</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
