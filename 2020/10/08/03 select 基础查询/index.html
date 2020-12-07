@@ -28,7 +28,7 @@
 <meta property="og:description" content="MySQL中SQL查询中的基础查询语法SELECT 查询列表 FROM 表名;以及对语法中查询列表字段（表字段、常量、表达式、函数）的示例…">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2020-10-08T14:25:59.921Z">
-<meta property="article:modified_time" content="2020-10-17T03:24:15.670Z">
+<meta property="article:modified_time" content="2020-12-07T12:54:25.439Z">
 <meta property="article:author" content="zjiaahui">
 <meta property="article:tag" content="MySQL">
 <meta name="twitter:card" content="summary">
@@ -192,7 +192,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-10-17 11:24:15" itemprop="dateModified" datetime="2020-10-17T11:24:15+08:00">2020-10-17</time>
+                <time title="修改时间：2020-12-07 20:54:25" itemprop="dateModified" datetime="2020-12-07T20:54:25+08:00">2020-12-07</time>
               </span>
 
           <br>
@@ -201,7 +201,7 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>968</span>
+              <span>934</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -259,11 +259,11 @@
 <h2 id="4、查询两个字段合成一个字段显示结果"><a href="#4、查询两个字段合成一个字段显示结果" class="headerlink" title="4、查询两个字段合成一个字段显示结果"></a>4、查询两个字段合成一个字段显示结果</h2><ul>
 <li><h3 id="【语法】-3"><a href="#【语法】-3" class="headerlink" title="【语法】"></a><strong>【语法】</strong></h3></li>
 </ul>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> <span class="keyword">CONCAT</span>(<span class="string">&#x27;字段1&#x27;</span>,<span class="string">&#x27;字段2&#x27;</span>) <span class="keyword">AS</span> 别名 <span class="keyword">FROM</span> 表名;</span><br></pre></td></tr></table></figure>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> <span class="keyword">CONCAT</span>(字段<span class="number">1</span>,字段<span class="number">2</span>) <span class="keyword">AS</span> 别名 <span class="keyword">FROM</span> 表名;</span><br></pre></td></tr></table></figure>
 <ul>
 <li><h3 id="【示例】-1"><a href="#【示例】-1" class="headerlink" title="【示例】"></a><strong>【示例】</strong></h3></li>
 </ul>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">4-0、查询员工表的中所有员工的姓和名并合并成完整的姓名输出</span><br><span class="line"><span class="keyword">SELECT</span> <span class="keyword">CONCAT</span>(<span class="string">&#x27;fristname&#x27;</span>,<span class="string">&#x27;lastname&#x27;</span>) <span class="keyword">AS</span> <span class="keyword">name</span> <span class="keyword">FROM</span> employee;</span><br></pre></td></tr></table></figure>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">4-0、查询员工表的中所有员工的姓和名并合并成完整的姓名输出(不要使用单引号包括字段名)</span><br><span class="line"><span class="keyword">SELECT</span> <span class="keyword">CONCAT</span>(fristname,lastname) <span class="keyword">AS</span> <span class="keyword">name</span> <span class="keyword">FROM</span> employee;</span><br></pre></td></tr></table></figure>
 
     </div>
 
